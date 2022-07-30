@@ -1,11 +1,35 @@
-function bolsasParaDulces(Ndulces, Kbolsillos, Mdulces)
+$(".button-start").on("click", function()
 {
-    let totalDulcesBolsillo = Kbolsillos * Mdulces;
-    let cantidadBolsas = Ndulces/totalDulcesBolsillo;
-    return Math.ceil(cantidadBolsas);
-}
+    $(".button-start").animate({opacity: 0.5});
+    let flag = true;    
+    var buttonSimonSelect;   
+    var numRandom;
+    var patternNumbers = []; 
+    for(let i = 0; i < 10; i++)
+    {
+        numRandom =  Math.ceil(Math.random() * 4);
+        patternNumbers[i] = numRandom;
+        console.log( numRandom);
+    }
 
-console.log(bolsasParaDulces(6, 2, 3));
-console.log(bolsasParaDulces(3, 1, 2));
-console.log(bolsasParaDulces(8, 4, 1));
-console.log(bolsasParaDulces(25, 4, 2));
+    console.log( patternNumbers );
+    
+    // for(let i = 0; i < 10; i++)
+    // {
+    //     buttonSimonSelect = ".simon-" + patternNumbers[i];
+    //     console.log(buttonSimonSelect);
+    //     $(buttonSimonSelect).animate({opacity: 0.5});    
+    //     $(buttonSimonSelect).animate({opacity: 0.5});     
+    //     $(buttonSimonSelect).animate({opacity: 1});      
+    //     $(buttonSimonSelect).animate({opacity: 1});       
+    // }
+});
+
+$(".simon-1").on("click", clickPulsado);
+async function clickPulsado() {
+    await new Promise((resolve) =>
+                      setTimeout(resolve, 3000))
+    alert('clicked')
+  }
+    
+

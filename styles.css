@@ -43,20 +43,21 @@ body
     {
         border: none;
         border-radius: 20px;
+        border: 1px solid rgba(164, 164, 164, 0.544)
     }
-        .simon-g
+        .simon-1
         {
             background-color: #77D68F;
         }
-        .simon-y
+        .simon-2
         {
             background-color: #FFDE59;
         }
-        .simon-r
+        .simon-3
         {
             background-color: #FF5555;
         }
-        .simon-b
+        .simon-4
         {
             background-color: #4D9AFF;
         }
