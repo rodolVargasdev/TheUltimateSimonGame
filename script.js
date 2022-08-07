@@ -29,7 +29,7 @@ function selectingPattern()
 {
     $(".button-start").animate({opacity: 0.5});
 
-    for(let i = 0; i < 4; i++)
+    for(let i = 0; i < 5; i++)
     {
         numRandom =  Math.ceil(Math.random() * 4);
         patternNumbers[i] = numRandom;
@@ -69,13 +69,7 @@ function startPattern()
     index++;
     
     console.log("NUMERO DE PATRÓN REALIZADO " + index);
-    // if(index === 4)
-    // {
-    //     allowPressSimonButton = false;
-    //     $(".button-simon").delay(100).animate({opacity: 1});
-    //     $(".button-simon").attr("data-bs-toggle", "n");
-    //     $(".button-simon").attr("data-bs-target", "#n");
-    // }
+    
 }
         
 
@@ -94,14 +88,18 @@ $(".button-simon").on("click", function(event)
         if(flagContador === index && buttonSelect === buttonSimonSelect) 
         {
             console.log("NUMERO DE PATRÓN REALIZADO " + index);
-            if(index === 4)
+            if(index === 5)
             {
                 allowPressSimonButton = false;
                 $(".button-simon").delay(100).animate({opacity: 1});
                 $(".button-simon").attr("data-bs-toggle", "modal");
                 $(".button-simon").attr("data-bs-target", "#exampleModal");
-                $(".modal-title").text("BIEN HECHO");
-                alert("BRAVO LO HAS CONSEGUIDO :D")
+                $(".modal-title").text("WELL DONE!");
+                $("#exampleModal").attr("class", "modal face show");
+                $("#exampleModal").attr("style", "display: block;");
+                $("#exampleModal").attr("aria-modal", "true");
+                $(".modal-body").text("CONGRATS! YOU GOT IT")
+                // alert("BRAVO LO HAS CONSEGUIDO :D");
             }
             else
             {
@@ -128,42 +126,19 @@ $(".button-simon").on("click", function(event)
                 $(patronContainerClass[flagContador-1]).attr("data-bs-target", "none");
             }
             else
-            {
-                // $(".button-simon").attr("data-bs-toggle", "modal");
-                // $(".button-simon").attr("data-bs-target", "#exampleModal");
+            {              
                 console.log("error");
                 $(".button-simon").attr("data-bs-toggle", "modal");
                 $(".button-simon").attr("data-bs-target", "#exampleModal");
                 allowPressSimonButton = false;
             }
         }
-
-        // $(".button-simon").attr("data-bs-toggle", "modal");
-        // $(".button-simon").attr("data-bs-target", "#exampleModal");
-        // $(patronContainerClass[flagContador-1]).attr("data-bs-toggle", "none");
-        // $(patronContainerClass[flagContador-1]).attr("data-bs-target", "none");
-
-        // if(buttonSimonSelect === buttonSelect)
-        // {   
-            // $(".button-simon").attr("data-bs-toggle", "modal");
-            // $(".button-simon").attr("data-bs-target", "#exampleModal");
-        //     console.log("Correcto");
-        //     allowPressSimonButton = false;
-            
-        // }
-        // else
-        // {
-        //     allowPressSimonButton = false;
-        //     $(".button-simon").attr("data-bs-toggle", "none");
-        //     $(".button-simon").attr("data-bs-target", "#none");
-        // }
     }
     else
     {
         console.log("Botones no activados")
     }
 })
-
 
 $(".button-simon").click(function(buttonPressPatter)
 {

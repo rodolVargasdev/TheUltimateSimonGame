@@ -8,13 +8,13 @@ body
 
 .main
 {
-    width: 100%;
+    width: 40%;
     height: auto;
     display: grid;
     grid-template-columns: 85%;
     grid-template-rows: auto auto auto auto;
     justify-content: center;
-    margin: 10% 0;
+    margin: 10% auto;
 }
 
 .main h1
@@ -36,7 +36,7 @@ body
     height: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 18vh);
+    grid-template-rows: repeat(2, 24vh);
     gap: 12px;
 }
     .button-simon
@@ -110,7 +110,7 @@ body
     }
     .indications-container h3 span
     {
-        border-bottom: 4px solid #545454;
+        border-bottom: 2px solid #545454;
     }
     .indications-container p
     {
@@ -121,3 +121,14 @@ body
         letter-spacing: 0.5px;
         margin-bottom: 0;
     }
+
+@media only screen and (max-width: 850px) {
+        .main 
+        {
+            width: 90%;        
+        }
+        .buttons-container
+        {
+            grid-template-rows: repeat(2, 18vh);
+        }
+      }  
