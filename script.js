@@ -5,6 +5,7 @@ var flagPatternOn = false;
 var flagContador = 1;
 var index = 0;
 var allowPressSimonButton = false;
+console.log("Botones OFF");
 var patronContainerClass = [];
 var flag2 = 0;
 
@@ -45,15 +46,20 @@ function selectingPattern()
 function startPattern()
 {
     allowPressSimonButton = false;
+    console.log("Botones OFF");
     timeBetween = 0;
     for(let i = -1; i < index; i++)
     {
         allowPressSimonButton = false;
+        console.log("Botones OFF");
         console.log("Botones desactivados");
+        $(".button-start").text("Getting Pattern");
         setTimeout(function()
         {
             allowPressSimonButton = false;
+            console.log("Botones OFF");
             console.log("Botones desactivados");
+            $(".button-start").text("Getting Pattern");
             buttonSimonSelect = "";
             buttonSimonSelect = ".simon-" + patternNumbers[i+1];
             $(buttonSimonSelect).delay(100).animate({opacity: 0.5});
@@ -63,6 +69,8 @@ function startPattern()
         setTimeout(function()
         {
                 allowPressSimonButton = true;
+                console.log("Botones ON");
+                $(".button-start").text("Your turn!");
                 
         },timeBetween+1000)
     } 
@@ -76,14 +84,13 @@ function startPattern()
 $(".button-simon").on("click", function(event)
 {
     if( allowPressSimonButton === true )
-    {
-        
+    {  
         console.log("test " + patronContainerClass[flagContador-1]);     
         console.log("."+event.target.classList[1]);
         
         console.log(patronContainerClass[index-1] + " XD");
 
-        var buttonSelect = "."+event.target.classList[1];
+        var buttonSelect = "." + event.target.classList[1];
 
         if(flagContador === index && buttonSelect === buttonSimonSelect) 
         {
@@ -91,10 +98,11 @@ $(".button-simon").on("click", function(event)
             if(index === 5)
             {
                 allowPressSimonButton = false;
+                console.log("Botones OFF");
                 $(".button-simon").delay(100).animate({opacity: 1});
                 $(".button-simon").attr("data-bs-toggle", "modal");
                 $(".button-simon").attr("data-bs-target", "#exampleModal");
-                $(".modal-title").text("WELL DONE!");
+                $(".modal-title").text("WELL DONE");
                 $("#exampleModal").attr("class", "modal face show");
                 $("#exampleModal").attr("style", "display: block;");
                 $("#exampleModal").attr("aria-modal", "true");
@@ -119,6 +127,8 @@ $(".button-simon").on("click", function(event)
             {
                 console.log(buttonSelect + " son iguales " + patronContainerClass[flagContador-1]);
                 allowPressSimonButton = true;
+                console.log("Botones ON");
+                $(".button-start").text("Your turn!");
                 flagContador++;
                 $(".button-simon").attr("data-bs-toggle", "modal");
                 $(".button-simon").attr("data-bs-target", "#exampleModal");
@@ -128,9 +138,11 @@ $(".button-simon").on("click", function(event)
             else
             {              
                 console.log("error");
+                $(".button-start").text("You failed:(");
                 $(".button-simon").attr("data-bs-toggle", "modal");
                 $(".button-simon").attr("data-bs-target", "#exampleModal");
                 allowPressSimonButton = false;
+                console.log("Botones OFF");
             }
         }
     }
@@ -142,15 +154,15 @@ $(".button-simon").on("click", function(event)
 
 $(".button-simon").click(function(buttonPressPatter)
 {
-    if( allowPressSimonButton === true )
-    {
+    // if( allowPressSimonButton === true )
+    // {
     console.log("."+buttonPressPatter.target.classList[1]);
     let botonSeleccionado = "."+buttonPressPatter.target.classList[1];
-    $(botonSeleccionado).delay(10).animate({opacity: 0.5});
-    $(botonSeleccionado).delay(10).animate({opacity: 1});
-    }
-    else
-    {
-        console.log("Botones no activados")
-    }
+    $(botonSeleccionado).delay(1).animate({opacity: 0.5});
+    $(botonSeleccionado).delay(1).animate({opacity: 1});
+    // }
+    // else
+    // {
+    //     console.log("Botones no activados")
+    // }
 });
